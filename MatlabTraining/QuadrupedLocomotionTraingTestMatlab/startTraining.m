@@ -38,7 +38,7 @@ agentOptions.TargetSmoothFactor = 1e-3;
 agentOptions.NoiseOptions.MeanAttractionConstant = 0.15;
 agentOptions.NoiseOptions.Variance = 0.1;
 
-%Create the rlDDPGAgent object for the agent.
+% Create the rlDDPGAgent object for the agent
 agent = rlDDPGAgent(actor,critic,agentOptions);
 
 %% Specify Training Options
@@ -56,14 +56,14 @@ trainOpts = rlTrainingOptions(...
     'SaveAgentValue',200);
 
 % train the agent in parallel training mode
-trainOpts.UseParallel = true;
+trainOpts.UseParallel = false;
 trainOpts.ParallelizationOptions.Mode = 'async';
 trainOpts.ParallelizationOptions.StepsUntilDataIsSent = 32;
 trainOpts.ParallelizationOptions.DataToSendFromWorkers = 'Experiences';
 
 %% Train Agent
-doTraining = false;
-if doTraining    
+doTraining = true;
+if doTraining
     % Train the agent
     trainingStats = train(agent,env,trainOpts);
 else
