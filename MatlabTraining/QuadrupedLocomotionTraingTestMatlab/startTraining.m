@@ -81,6 +81,6 @@ else
 end
 
 %% Simulation
-% rng(0);
-% simOptions = rlSimulationOptions('MaxSteps', maxSteps);
-% experience = sim(env, agent, simOptions);
+rng(0);
+simOptions = rlSimulationOptions('MaxSteps', maxSteps);
+experience = sim(env, agent, simOptions);
